@@ -1,0 +1,190 @@
+{
+  "info": {
+    "_postman_id": "b13e9d16-d58b-4308-9fca-816687852246",
+    "name": "Flask user app",
+    "description": "CRUD requests for the Lab 5 Flask user API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Users",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/users",
+          "host": ["{{base_url}}"],
+          "path": ["api", "users"]
+        }
+      },
+      "response": [
+        {
+          "name": "Get All Users - Success",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/users",
+              "host": ["{{base_url}}"],
+              "path": ["api", "users"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [{"key": "Content-Type", "value": "application/json"}],
+          "cookie": [],
+          "body": "[\n  {\n    \"address\": \"Beirut\",\n    \"country\": \"Lebanon\",\n    \"email\": \"johndoe@example.com\",\n    \"name\": \"John Doe\",\n    \"phone\": \"12345678\",\n    \"user_id\": 1\n  },\n  {\n    \"address\": \"Tripoli\",\n    \"country\": \"Lebanon\",\n    \"email\": \"maya.haddad@example.com\",\n    \"name\": \"Maya Haddad\",\n    \"phone\": \"70123456\",\n    \"user_id\": 2\n  }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Get User By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/users/1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "users", "1"]
+        }
+      },
+      "response": [
+        {
+          "name": "Get User By ID - Success",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/users/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "users", "1"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [{"key": "Content-Type", "value": "application/json"}],
+          "cookie": [],
+          "body": "{\n  \"address\": \"Beirut\",\n  \"country\": \"Lebanon\",\n  \"email\": \"johndoe@example.com\",\n  \"name\": \"John Doe\",\n  \"phone\": \"12345678\",\n  \"user_id\": 1\n}"
+        }
+      ]
+    },
+    {
+      "name": "Add User",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Alice Khalil\",\n  \"email\": \"alice.khalil@example.com\",\n  \"phone\": \"76123456\",\n  \"address\": \"Sidon\",\n  \"country\": \"Lebanon\"\n}",
+          "options": {"raw": {"language": "json"}}
+        },
+        "url": {
+          "raw": "{{base_url}}/api/users/add",
+          "host": ["{{base_url}}"],
+          "path": ["api", "users", "add"]
+        }
+      },
+      "response": [
+        {
+          "name": "Add User - Success",
+          "originalRequest": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Alice Khalil\",\n  \"email\": \"alice.khalil@example.com\",\n  \"phone\": \"76123456\",\n  \"address\": \"Sidon\",\n  \"country\": \"Lebanon\"\n}",
+              "options": {"raw": {"language": "json"}}
+            },
+            "url": {
+              "raw": "{{base_url}}/api/users/add",
+              "host": ["{{base_url}}"],
+              "path": ["api", "users", "add"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [{"key": "Content-Type", "value": "application/json"}],
+          "cookie": [],
+          "body": "{\n  \"address\": \"Sidon\",\n  \"country\": \"Lebanon\",\n  \"email\": \"alice.khalil@example.com\",\n  \"name\": \"Alice Khalil\",\n  \"phone\": \"76123456\",\n  \"user_id\": 3\n}"
+        }
+      ]
+    },
+    {
+      "name": "Update User",
+      "request": {
+        "method": "PUT",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"user_id\": 3,\n  \"name\": \"Alice Khalil\",\n  \"email\": \"alice.khalil@example.com\",\n  \"phone\": \"76987654\",\n  \"address\": \"Jounieh\",\n  \"country\": \"Lebanon\"\n}",
+          "options": {"raw": {"language": "json"}}
+        },
+        "url": {
+          "raw": "{{base_url}}/api/users/update",
+          "host": ["{{base_url}}"],
+          "path": ["api", "users", "update"]
+        }
+      },
+      "response": [
+        {
+          "name": "Update User - Success",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": 3,\n  \"name\": \"Alice Khalil\",\n  \"email\": \"alice.khalil@example.com\",\n  \"phone\": \"76987654\",\n  \"address\": \"Jounieh\",\n  \"country\": \"Lebanon\"\n}",
+              "options": {"raw": {"language": "json"}}
+            },
+            "url": {
+              "raw": "{{base_url}}/api/users/update",
+              "host": ["{{base_url}}"],
+              "path": ["api", "users", "update"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [{"key": "Content-Type", "value": "application/json"}],
+          "cookie": [],
+          "body": "{\n  \"address\": \"Jounieh\",\n  \"country\": \"Lebanon\",\n  \"email\": \"alice.khalil@example.com\",\n  \"name\": \"Alice Khalil\",\n  \"phone\": \"76987654\",\n  \"user_id\": 3\n}"
+        }
+      ]
+    },
+    {
+      "name": "Delete User",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/users/delete/3",
+          "host": ["{{base_url}}"],
+          "path": ["api", "users", "delete", "3"]
+        }
+      },
+      "response": [
+        {
+          "name": "Delete User - Success",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/users/delete/3",
+              "host": ["{{base_url}}"],
+              "path": ["api", "users", "delete", "3"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [{"key": "Content-Type", "value": "application/json"}],
+          "cookie": [],
+          "body": "{\n  \"status\": \"User deleted successfully\"\n}"
+        }
+      ]
+    }
+  ]
+}
