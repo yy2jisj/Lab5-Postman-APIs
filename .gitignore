@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.pyc
+.manual-render/
+.playwright/
+output/
