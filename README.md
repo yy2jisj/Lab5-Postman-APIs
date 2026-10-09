@@ -32,6 +32,8 @@ Postman environment: `postman/Flask-user-app.postman_environment.json`
 
 Run `python scripts/verify_api.py` while the server is running to verify every CRUD endpoint with real HTTP requests.
 
+Verification screenshots: `screenshots/`
+
 ## Manual corrections
 
 Python already includes `sqlite3`, so the manual's `pip install db-sqlite3` command is not needed. The working implementation also corrects `conn().rollback()` to `conn.rollback()`, uses valid multiline SQL, creates the table only when needed, and closes every database connection.

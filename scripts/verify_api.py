@@ -48,6 +48,11 @@ def main():
     assert status == 200 and added["name"] == new_user["name"]
     show("POST add user", status, added)
 
+    added_id = added["user_id"]
+    status, added_from_database = request_json("GET", f"/api/users/{added_id}")
+    assert status == 200 and added_from_database == added
+    show("GET after add", status, added_from_database)
+
     updated_payload = {
         **added,
         "phone": "76987654",
@@ -57,10 +62,17 @@ def main():
     assert status == 200 and updated["address"] == "Jounieh"
     show("PUT update user", status, updated)
 
-    added_id = added["user_id"]
+    status, updated_from_database = request_json("GET", f"/api/users/{added_id}")
+    assert status == 200 and updated_from_database == updated
+    show("GET after update", status, updated_from_database)
+
     status, deleted = request_json("DELETE", f"/api/users/delete/{added_id}")
     assert status == 200 and deleted["status"] == "User deleted successfully"
     show("DELETE user", status, deleted)
+
+    status, deleted_lookup = request_json("GET", f"/api/users/{added_id}")
+    assert status == 200 and deleted_lookup == {}
+    show("GET deleted user", status, deleted_lookup)
 
     status, users_after_delete = request_json("GET", "/api/users")
     assert status == 200 and all(
