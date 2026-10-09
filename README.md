@@ -30,8 +30,6 @@ Postman collection: `postman/Flask-user-app.postman_collection.json`
 
 Postman environment: `postman/Flask-user-app.postman_environment.json`
 
-Run `python scripts/verify_api.py` while the server is running to verify every CRUD endpoint with real HTTP requests.
-
 Verification screenshots: `screenshots/`
 
 ## Manual corrections
